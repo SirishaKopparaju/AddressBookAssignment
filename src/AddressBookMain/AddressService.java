@@ -5,52 +5,48 @@ import java.util.List;
 
 public class AddressService implements IAddressBookservice {
 	
-	public List<AddressBookMain> stockList=new ArrayList<AddressBookMain>();
-
+	public ArrayList<AddressBookMain> stockList=new ArrayList();
 
 
 	public void addAddress(String firstname, String lastname, String state, String city, String mailid,
 			long phonenumber, long zip) {
 		// TODO Auto-generated method stub
 		AddressBookMain stock=new AddressBookMain();
-		AddressBookMain.setfirstName(firstname);
-		AddressBookMain.setlastName(lastname);
-		AddressBookMain.setphoneNumber(phonenumber));
-		AddressBookMain.setmailid(mailid);
-        AddressBookMain.setCity(city);
-		AddressBookMain.setState(state);
-		AddressBookMain.setZip(zip);
-
-		AdddressBookMainList.add(firstname);
-		AdddressBookMainList.add(lastname);
-
-		AdddressBookMainList.delete(firstname);
-		AdddressBookMainList.delete(lastname);
-
-
-		
+		stock.setfirstname(firstname);
+		stock.setLastName(lastname);
+		stock.setMailid(mailid);
+		stock.setPhoneNumber(phonenumber);
+        stock.setState(state);
+		stock.setCity(city);
+		stock.setZip(zip);
+stockList.add(stock);
+	/*stockList.remove(0)	;*/
 	}
 	
-	public void printReport() {
+	public void editName() {
 		System.out.println("********AdressBook*******");
-		for(int i=0;i<AddressBookMainList.size();i++) {
-			System.out.println("***************");
-			System.out.println("first name:"+AddressBookMain.get(i).getfirstName());
-			System.out.println("last name:"+AddressBookMain.get(i).getlastName());
-			System.out.println("city name:"+AddressBookMain.get(i).getCity());
-			System.out.println("State name:"+AddressBookMain.get(i).getState());
-			System.out.println("zip code:"+AddressBookMain.get(i).getZip());
-			System.out.println("phonenumber:"+AddressBookMain.get(i).getphoneNumber());
-			System.out.println("mailid:"+AddressBookMain.get(i).getmailid());
-			
-			System.out.println("***************");
+		for(int i=0;i<stockList.size();i++) {
+			if(stockList.get(i).getFirstName().equals("sirisha")){
+			stockList.get(i).setfirstname("sowjanya");
+			System.out.println("+stockList:"+stockList.get(i).getFirstName());
+
+			System.out.println("NAME MATCHES");
+
+			}
+			else {
+				System.out.println("NAME DOES NOT MATCH");
+
+			}
 		}
+		
 
 	}
 
-	public void printReport1() {
+	public void printReport() {
 		// TODO Auto-generated method stub
-
+		
 	}
+
+
 
 }
