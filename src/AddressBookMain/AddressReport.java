@@ -5,9 +5,9 @@ import java.util.Scanner;
 public class AddressReport {
 	public static void main(String[] args) {
 		Scanner scanner=new Scanner(System.in);
-		System.out.println("pLease enter the number of stock ypu will enter:");
+		System.out.println("pLease enter the number of address book:");
 		int numberOfBooks=scanner.nextInt();
-		IAddressBookservice iAddressBookservice=new AddressService();
+		AddressService iAddressBookservice=new AddressService();
 		for(int i=0;i<numberOfBooks;i++) {
 			System.out.println("Please enter first name");
 			String firstname=scanner.next();

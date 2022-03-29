@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class AddressService implements iAddressBookservice {
+public class AddressService implements IAddressBookservice {
 	
 	public List<AddressBookMain> stockList=new ArrayList<AddressBookMain>();
 
@@ -21,7 +21,7 @@ public class AddressService implements iAddressBookservice {
 		AddressBookMain.setState(state);
 		AddressBookMain.setZip(zip);
 
-		stockList.add(stock);
+		AdddressBookMainList.add(AddressBookMain);
 		
 	}
 	
@@ -29,13 +29,13 @@ public class AddressService implements iAddressBookservice {
 		System.out.println("********AdressBook*******");
 		for(int i=0;i<AddressBookMainList.size();i++) {
 			System.out.println("***************");
-			System.out.println("Stock name:"+AddressBookMain.get(i).getfirstName());
-			System.out.println("Stock name:"+AddressBookMain.get(i).getlastName());
-			System.out.println("Stock name:"+AddressBookMain.get(i).getCity());
-			System.out.println("Stock name:"+AddressBookMain.get(i).getState());
-			System.out.println("Stock name:"+AddressBookMain.get(i).getZip());
-			System.out.println("Stock name:"+AddressBookMain.get(i).getphoneNumber());
-			System.out.println("Stock name:"+AddressBookMain.get(i).getmailid());
+			System.out.println("first name:"+AddressBookMain.get(i).getfirstName());
+			System.out.println("last name:"+AddressBookMain.get(i).getlastName());
+			System.out.println("city name:"+AddressBookMain.get(i).getCity());
+			System.out.println("State name:"+AddressBookMain.get(i).getState());
+			System.out.println("zip code:"+AddressBookMain.get(i).getZip());
+			System.out.println("phonenumber:"+AddressBookMain.get(i).getphoneNumber());
+			System.out.println("mailid:"+AddressBookMain.get(i).getmailid());
 			
 			System.out.println("***************");
 		}
