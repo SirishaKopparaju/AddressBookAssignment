@@ -29,7 +29,7 @@ public class AddressReport {
 			
 			iAddressBookservice.addAddress(firstname,lastname,state,city,mailid,phonenumber,Zip);
 		}
-		iAddressBookservice.printReport();
+		iAddressBookservice.editName();
 		
 		
 	}

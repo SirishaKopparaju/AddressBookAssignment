@@ -38,7 +38,17 @@ stockList.add(stock);
 
 			}
 		}
+	}
 		
+		public void deleteName() {
+			System.out.println("********AdressBook*******");
+			for(int i=0;i<stockList.size();i++) {
+				if(stockList.get(i).getFirstName().equals("sirisha")){
+				stockList.remove(i).getFirstName();
+				System.out.println("cleared index");
+
+				}
+		}
 
 	}
 
