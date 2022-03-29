@@ -21,7 +21,13 @@ public class AddressService implements IAddressBookservice {
 		AddressBookMain.setState(state);
 		AddressBookMain.setZip(zip);
 
-		AdddressBookMainList.add(AddressBookMain);
+		AdddressBookMainList.add(firstname);
+		AdddressBookMainList.add(lastname);
+
+		AdddressBookMainList.delete(firstname);
+		AdddressBookMainList.delete(lastname);
+
+
 		
 	}
 	
