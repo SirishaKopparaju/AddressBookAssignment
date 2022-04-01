@@ -6,6 +6,7 @@ import java.util.List;
 public class AddressService implements IAddressBookservice {
 	
 	public ArrayList<AddressBookMain> stockList=new ArrayList();
+	
 
 
 	public void addAddress(String firstname, String lastname, String state, String city, String mailid,
@@ -53,6 +54,17 @@ stockList.add(stock);
 	}
 
 	public void printReport() {
+		// TODO Auto-generated method stub
+		
+	}
+	public static void main(String[]args) {
+		addAddresscompany("sirisha","kopparaju","state","hyderabad","sirishakopparaju",500058898,977787);
+		addAddresscompany("sowjanya","vadlamani","telangana","hyd","sowjanyavadl",697666760,500067);
+		
+	}
+
+	private static void addAddresscompany(String string, String string2, String string3, String string4, String string5,
+			int i, int j) {
 		// TODO Auto-generated method stub
 		
 	}
