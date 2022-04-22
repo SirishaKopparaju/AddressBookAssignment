@@ -2,6 +2,7 @@ package AddressBookMain;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 
 public class AddressService implements IAddressBookservice {
@@ -66,6 +67,7 @@ public class AddressService implements IAddressBookservice {
 		addressservice.searchPerson("hyd", "telangana");
 		addressservice.searchPersonS("hyd");
 		addressservice.searchWithContact(697666760);
+		addressservice.SortTheName("Sirisha");
 		}
 
 	public void searchPerson(String cityName, String stateName) {
@@ -96,6 +98,11 @@ public class AddressService implements IAddressBookservice {
     	long count =addressList.stream().count();
     	System.out.println(+count);
     }
+
+public void SortTheName(String FirstName) {
+	List<String> sortedList = addressList.stream().sorted((FirstName1,FirstName2)->FirstName2.compareTo(FirstName1)).collect(Collectors.toList()));
+			System.out.println(+sortedList);
+}
 }
 	
 
