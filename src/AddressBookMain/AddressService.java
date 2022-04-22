@@ -65,6 +65,7 @@ public class AddressService implements IAddressBookservice {
 		addressservice.addAddress("sowjanya","vadlamani","telangana","hyd","sowjanyavadl",697666760,500067);
 		addressservice.searchPerson("hyd", "telangana");
 		addressservice.searchPersonS("hyd");
+		addressservice.searchWithContact(697666760);
 		}
 
 	public void searchPerson(String cityName, String stateName) {
@@ -91,10 +92,13 @@ public class AddressService implements IAddressBookservice {
             System.out.println("person is not present in this city");
         }
 }
+    public void searchWithContact(int phoneNumber) {
+    	long count =addressList.stream().count();
+    	System.out.println(+count);
+    }
+}
 	
 
-	
-        }
     
 
 
