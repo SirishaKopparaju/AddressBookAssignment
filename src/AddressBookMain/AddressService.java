@@ -68,6 +68,7 @@ public class AddressService implements IAddressBookservice {
 		addressservice.searchPersonS("hyd");
 		addressservice.searchWithContact(697666760);
 		addressservice.SortTheName("Sirisha");
+		addressservice.SortTheCity("Hyd");
 		}
 
 	public void searchPerson(String cityName, String stateName) {
@@ -100,10 +101,15 @@ public class AddressService implements IAddressBookservice {
     }
 
 public void SortTheName(String FirstName) {
-	List<String> sortedList = addressList.stream().sorted((FirstName1,FirstName2)->FirstName2.compareTo(FirstName1)).collect(Collectors.toList()));
+	List<String> sortedList = addressList.stream().sorted((FirstName1,FirstName2)->FirstName2.compareTo(FirstName1).collect(Collectors.toList());
+			System.out.println(+sortedList);
+}
+public void SortTheCity(String cityName) {
+	List<String> sortedList = addressList.stream().sorted((cityName1,cityName2)->cityName2.compareTo(cityName1).collect(Collectors.toList());
 			System.out.println(+sortedList);
 }
 }
+
 	
 
     
