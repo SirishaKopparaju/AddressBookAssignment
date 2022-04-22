@@ -64,6 +64,7 @@ public class AddressService implements IAddressBookservice {
 		addressservice.addAddress("sirisha","kopparaju","state","hyderabad","sirishakopparaju",500058898,977787);
 		addressservice.addAddress("sowjanya","vadlamani","telangana","hyd","sowjanyavadl",697666760,500067);
 		addressservice.searchPerson("hyd", "telangana");
+		addressservice.searchPersonS("hyd");
 		}
 
 	public void searchPerson(String cityName, String stateName) {
@@ -77,6 +78,18 @@ public class AddressService implements IAddressBookservice {
 
         System.out.println("person is not present in this city or state");
     }
+    }
+    public void searchPersonS(String cityName) {
+        boolean isPresent =addressList.stream()
+                .anyMatch(con -> con.getCity().equals(cityName));
+        if (isPresent) {
+        	addressList.stream().filter(s -> s.getCity().equals(cityName))
+                    .sorted().forEachOrdered(conts -> System.out.println("User name :" + conts.getFirstName()));
+
+        } else {
+
+            System.out.println("person is not present in this city");
+        }
 }
 	
 
