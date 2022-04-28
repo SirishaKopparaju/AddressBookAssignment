@@ -8,7 +8,7 @@ import java.io.File;
 
 public class AdressBookFileIO {
 
-    public void writeData(List<AddressBook> addressBook){
+    public void writeData(List<AddressBookMain> addressBook){
         StringBuffer addressBookBuffer = new StringBuffer();
         addressBook.forEach(employee ->{
             String empDataString = employee.toString().concat("\n");
@@ -35,4 +35,4 @@ public class AdressBookFileIO {
         }
 }
 
-}
+

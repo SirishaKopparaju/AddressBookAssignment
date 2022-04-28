@@ -1,11 +1,17 @@
 package AddressBookMain;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
 
 public class AddressService implements IAddressBookservice {
+	final static String FILE_PATH = "/d/AddressBook4/addressBookOutputData.txt";
+	final static String CSV_FILE_PATH = "d:\\AddressBook4\\addressBookOutputDataCSVFile.csv";
 	
 	private static final Object FILE_IO = null;
 	public ArrayList<AddressBookMain> addressList=new ArrayList();
@@ -124,6 +130,52 @@ public void SortTheCity(String cityName) {
         }
         
     }
+  /* public void readPersonDataFromFile() {
+   	 try {
+            Files.lines(new File(FILE_PATH).toPath()).forEach(System.out::println);
+        }catch (IOException ioException) {
+            ioException.printStackTrace();
+        }
+   }*/
+   //UC-14
+   public  void writeDataIntoCSVFile() {
+       FileWriter fileWrite;
+       try {
+           fileWrite = new FileWriter(CSV_FILE_PATH );
+           OpenCSVWriter writer = new OpenCSVWriter();
+           for (Map.Entry<String, AddressBookMain> e : AddressBookMain.entrySet()) {
+               HashSet<AddressBookMain> addressBook = e.getValue().addressBook;
+               List<String[]> contacts = addressBook.stream().map(person -> {
+                           String[] contact = new String[]{person.getFirstName(), person.getCity(), person.getState(), person.email};
+                           return contact;
+                       }
+               ).collect(Collectors.toList());
+               writer.writeAll(contacts);
+           }
+           writer.close();
+       } catch (IOException e) {
+           e.printStackTrace();
+           System.err.println("Invalid path");
+       }
+
+   }
+
+public void readCSVDataFromFile() {
+   System.out.println("Reading from CSV File");
+   try {
+       FileReader filereader = new FileReader(CSV_FILE_PATH);
+       CSVReader csvReader = new CSVReader();
+       String[] nextRecord;
+       while ((nextRecord = csvReader.readNext()) != null) {
+           for (String cell : nextRecord) {
+               System.out.print(cell + "\t");
+           }
+           System.out.println();
+       }
+   } catch (Exception e) {
+       System.err.println("File not found at given path");
+   }
+}
 }
 
 	

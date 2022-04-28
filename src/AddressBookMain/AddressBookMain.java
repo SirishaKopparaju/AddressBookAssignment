@@ -66,6 +66,11 @@ private long Zip;
 	public void AdressBook() {
 		// TODO Auto-generated constructor stub
 	}
+	public void getContact() {
+		// TODO Auto-generated method stub
+		
+	}
+	
 	}
 
 
