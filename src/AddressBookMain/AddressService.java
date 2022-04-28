@@ -1,7 +1,9 @@
 package AddressBookMain;
+import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -137,12 +139,12 @@ public void SortTheCity(String cityName) {
             ioException.printStackTrace();
         }
    }*/
-   //UC-14
+   
    public  void writeDataIntoCSVFile() {
        FileWriter fileWrite;
        try {
            fileWrite = new FileWriter(CSV_FILE_PATH );
-           OpenCSVWriter writer = new OpenCSVWriter();
+           CSVWriter writer = new CSVWriter();
            for (Map.Entry<String, AddressBookMain> e : AddressBookMain.entrySet()) {
                HashSet<AddressBookMain> addressBook = e.getValue().addressBook;
                List<String[]> contacts = addressBook.stream().map(person -> {
@@ -174,8 +176,37 @@ public void readCSVDataFromFile() {
        }
    } catch (Exception e) {
        System.err.println("File not found at given path");
-   }
+   
 }
+   public void writeDataIntoJsonFile() throws IOException {
+       Gson gson = new GsonBuilder().setPrettyPrinting().create();
+       Writer writer = null;
+       try {
+           writer = new FileWriter(JSON_FILE_PATH);
+           for (Map.Entry<String, AddressBook> e : dictionaryOfAddressBooks.entrySet()) {
+               gson.toJson(e.getValue(), writer);//HashSet to JSON
+           }
+
+           // close writer
+       } catch (Exception ex) {
+           ex.printStackTrace();
+       } finally {
+           writer.close();
+       }
+   }
+public void readDataFromJsonFile() {
+Gson gson = new GsonBuilder().setPrettyPrinting().create();
+try {
+   System.out.println("Reading data from a JSON file");
+   System.out.println("----------------------------");
+   AddressBook data = gson.fromJson(new FileReader(JSON_FILE_PATH), AddressBook.class);
+   System.out.println(gson.toJson(data));
+} catch (IOException e) {
+   System.err.println("File not found in given path");
+}
+}
+
+   }
 }
 
 	
